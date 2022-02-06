@@ -1,6 +1,6 @@
 # processorDesign
 
-This repository contains my design of the microarchitecture for a simple 8 bit processor based on the [LC3] (https://github.com/chiragsakhuja/lc3tools).
+This repository contains my design of the microarchitecture for a simple 8 bit processor based on the [LC3][link1].
 
 ### Specifications:
 * The processor has 4 registers, each of 8 bits.
@@ -109,4 +109,4 @@ Destination Register bit sent to Register File Decoder
 After this step, the control unit returns to the first step of the instruction cycle. The PC contents are sent to the MAR. The MDR is loaded with the next instruction and the instruction is sent to the IR. 
 
 
-
+[link1]: https://github.com/chiragsakhuja/lc3tools
