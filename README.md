@@ -13,19 +13,20 @@ and address space of 256.
 
 ### Instruction Encodings/Opcodes:
 1. Load
+<img src="images/load.jpeg">
 
 
 2. Store
-
+<img src="images/store.jpeg">
 
 3. Add
-
+<img src="images/add.jpeg">
 
 4. And
-
+<img src="images/and.jpeg">
 
 5. Branch
-
+<img src="images/branch.jpeg">
 
 #### Register Encoding: 
 R0 = 0
@@ -33,7 +34,9 @@ R1 = 1
 R2 = 10
 R3 = 11
 
+<img src="images/blockDiagram.jpeg">
 
+<img src="images/finiteStateDiagram.jpeg">
 
 
 ### The Instruction Cycle:
