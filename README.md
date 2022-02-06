@@ -10,35 +10,42 @@ and address space of 256.
 * RAM is used to store both data and instructions.
 * The processor has 5 instructions
 
+<figure>
 <img src="images/blockDiagram.jpeg">
-This diagram shows all datapaths and control lines and was developed as a blueprint to build the processor in CedarLogic.
+<figcaption align = "center"><b>Fig.1 - This diagram shows all datapaths and control lines and was developed as a blueprint to build the processor in CedarLogic.</b></figcaption>
+</figure>
 
 
 ### Instruction Encodings/Opcodes:
-#### 1. Load
+#### 1. LOAD
 <img src="images/load.jpeg">
 
 
-#### 2. Store
+#### 2. STORE
 <img src="images/store.jpeg">
 
-#### 3. Add
+#### 3. ADD
 <img src="images/add.jpeg">
 
-#### 4. And
+#### 4. AND
 <img src="images/and.jpeg">
 
-#### 5. Branch
+#### 5. BRANCH
 <img src="images/branch.jpeg">
 
-#### Register Encoding: 
-R0 = 0
-R1 = 1
-R2 = 10
-R3 = 11
+### Register Encoding: 
+R0 = 0 <br />
+R1 = 1 <br />
+R2 = 10 <br />
+R3 = 11 <br />
 
+
+<figure>
 <img src="images/finiteStateDiagram.jpeg">
-This diagram describes the value of each control line at each step of the instruction cycle for each instruction/opcode.
+<figcaption align = "center"><b>Fig.1 - This diagram describes the value of each control line at each step of the instruction cycle for each instruction/opcode.</b></figcaption>
+</figure>
+
+
 
 ### List of Control Signals:
 **Gate.IR** (1 bit) Controls flow of Instruction Register contents onto Global Bus.<br />
