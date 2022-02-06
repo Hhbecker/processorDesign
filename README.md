@@ -10,22 +10,25 @@ and address space of 256.
 * RAM is used to store both data and instructions.
 * The processor has 5 instructions
 
+<img src="images/blockDiagram.jpeg">
+This diagram shows all datapaths and control lines and was developed as a blueprint to build the processor in CedarLogic.
+
 
 ### Instruction Encodings/Opcodes:
-1. Load
+#### 1. Load
 <img src="images/load.jpeg">
 
 
-2. Store
+#### 2. Store
 <img src="images/store.jpeg">
 
-3. Add
+#### 3. Add
 <img src="images/add.jpeg">
 
-4. And
+#### 4. And
 <img src="images/and.jpeg">
 
-5. Branch
+#### 5. Branch
 <img src="images/branch.jpeg">
 
 #### Register Encoding: 
@@ -34,43 +37,39 @@ R1 = 1
 R2 = 10
 R3 = 11
 
-<img src="images/blockDiagram.jpeg">
-
 <img src="images/finiteStateDiagram.jpeg">
+This diagram describes the value of each control line at each step of the instruction cycle for each instruction/opcode.
 
+### List of Control Signals:
+**Gate.IR** (1 bit) Controls flow of Instruction Register contents onto Global Bus.<br />
+**Gate.PC** (1 bit) Controls flow of Program Counter contents onto Global Bus.<br />
+**Gate.ALU** (1 bit) Controls flow of Arithmetic Logic Unit results onto Global Bus.<br />
+**Gate.Reg** (1 bit) Controls flow of Register File at specified source register onto Global Bus.<br />
+**Gate.MDR** (1 bit) Controls flow of Memory Data Register contents onto Global Bus.<br />
+
+**LD.PC** (1 bit) Write Enable signal for Program Counter register. <br />
+**LD.IR** (1 bit) Write Enable signal for Instruction Register. <br />
+**LD.MDR** (1 bit) Write Enable signal for Memory Data Register.<br />
+**LD.MAR** (1 bit) Write Enable signal for Memory Address Register.<br />
+**LD.Reg** (1 bit) Write Enable signal for specified register within Register File. <br />
+
+**PC.Mux** (1 bit) Determines whether the PC is incremented by one or the sum of PC+Offset is loaded into the PC register.<br />
+**MDR.Mux** (1 bit) Determines whether MDR is loaded with RAM contents or contents of the global bus.<br />
+**ALU.control** (1 bit) Determines whether the ALU outputs the result of an ADD or an AND.<br />
+**Write.RAM** (1 bit) Write Enable on RAM memory. <br />
+
+**BR.control** (1 bit) TRUE/FALSE result of Branch logic coming from ALU back into the control unit.<br />
+**DR** (2 bits) Destination register within the Register File for the bus contents to be written into.<br />
+**SR1** (2 bits) Register contents to be sent to ALU or to be sent to bus.<br />
+**SR2** (2 bits) Register contents to be sent to ALU as second input.<br />
 
 ### The Instruction Cycle:
-1. **Fetch:** load instruction at address stored in PC into instruction register. Increment PC
+1. **Fetch:** load instruction at address stored in PC into instruction register. Increment PC 
 2. **Decode:** Identify opcode. Idenntify operand location.
 3. **Evaluate Address:** Add offset to compute operand address.
 4. **Fetch Operands:** Fetch from addresses computed in previou step
 5. **Execute:** Send operands to Arithmatic/Logic Unit
 6. **Store:** Write result to destination register. 
-
-
-### List of Control Signals:
-**Gate.IR** (1 bit) Controls flow of Instruction Register contents onto Global Bus.
-**Gate.PC** (1 bit) Controls flow of Program Counter contents onto Global Bus.
-**Gate.ALU** (1 bit) Controls flow of Arithmetic Logic Unit results onto Global Bus.
-**Gate.Reg** (1 bit) Controls flow of Register File at specified source register onto Global Bus.
-**Gate.MDR** (1 bit) Controls flow of Memory Data Register contents onto Global Bus.
-
-**LD.PC** (1 bit) Write Enable signal for Program Counter register. 
-**LD.IR** (1 bit) Write Enable signal for Instruction Register. 
-**LD.MDR** (1 bit) Write Enable signal for Memory Data Register.
-**LD.MAR** (1 bit) Write Enable signal for Memory Address Register.
-**LD.Reg** (1 bit) Write Enable signal for specified register within Register File. 
-
-**PC.Mux** (1 bit) Determines whether the PC is incremented by one or the sum of PC+Offset is loaded into the PC register.
-**MDR.Mux** (1 bit) Determines whether MDR is loaded with RAM contents or contents of the global bus.
-**ALU.control** (1 bit) Determines whether the ALU outputs the result of an ADD or an AND.
-**Write.RAM** (1 bit) Write Enable on RAM memory. 
-
-**BR.control** (1 bit) TRUE/FALSE result of Branch logic coming from ALU back into the control unit.
-**DR** (2 bits) Destination register within the Register File for the bus contents to be written into.
-**SR1** (2 bits) Register contents to be sent to ALU or to be sent to bus.
-**SR2** (2 bits) Register contents to be sent to ALU as second input.
-
 
 ## Executing a LOAD instruction:
 Instruction: LOAD R0 1010
