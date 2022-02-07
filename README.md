@@ -16,7 +16,7 @@ and address space of 256.
 </figure>
 
 
-### Instruction Encodings/Opcodes:
+## Instruction Encodings/Opcodes:
 #### 1. LOAD
 <img src="images/load.jpeg">
 
