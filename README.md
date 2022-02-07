@@ -12,7 +12,7 @@ and address space of 256.
 
 <figure>
 <img src="images/blockDiagram.jpeg">
-<figcaption align = "center"><b>Fig.1 - This diagram shows all datapaths and control lines and was developed as a blueprint to build the processor in CedarLogic.</b></figcaption>
+<figcaption align = "center">Fig.1 - This diagram shows all datapaths and control lines and was developed as a blueprint to build the processor in CedarLogic.</figcaption>
 </figure>
 
 
@@ -42,7 +42,7 @@ R3 = 11 <br />
 
 <figure>
 <img src="images/finiteStateDiagram.jpeg">
-<figcaption align = "center"><b>Fig.1 - This diagram describes the value of each control line at each step of the instruction cycle for each instruction/opcode.</b></figcaption>
+<figcaption align = "center"> Fig.1 - This diagram describes the value of each control line at each step of the instruction cycle for each instruction/opcode.</figcaption>
 </figure>
 
 
